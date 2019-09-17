@@ -2,7 +2,7 @@
 <html>
 
 <body>
-<div style="text-align: center"><button onclick="buttonClick()">RESET</button></div><br><br>
+<div style="text-align: center"><button onclick="rainbowColor()">Rainbow</button><button onclick="tileOpacity()">Opacity</button><button onclick="buttonClick()">RESET</button></div><br><br>
 
 
 <div id="parent-container"><div id="container"></div></div>
@@ -12,6 +12,48 @@
 
 
 <script>
+
+
+
+function rainbowColor() {
+
+let f = 0;
+let g = 0;
+
+while(f<count) {
+  document.getElementById(f).addEventListener("mouseenter", function( event ) {   
+  
+  
+  // highlight the mouseenter target
+  event.target.style.backgroundColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);})
+  f++;
+}
+
+}
+
+
+
+
+
+function tileOpacity() {
+
+let f = 0;
+let g = 0;
+
+while(f<count) {
+  document.getElementById(f).addEventListener("mouseenter", function( event ) {   
+  
+  g += 0.1;
+  
+  // highlight the mouseenter target
+  event.target.style.opacity = g;
+  event.target.style.backgroundColor = "black";})
+  f++;
+}
+
+}
+
+
 
 let count = 16*16;
 function buttonClick() {
