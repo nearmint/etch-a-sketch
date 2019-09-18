@@ -1,157 +1,62 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-<div style="text-align: center"><button onclick="rainbowColor()">Rainbow</button><button onclick="tileOpacity()">Opacity</button><button onclick="buttonClick()">RESET</button></div><br><br>
+  <body>
+    <div style="text-align: center">
+      <button onclick="rainbowColor()">Rainbow</button>
+      <button onclick="tileOpacity()">Opacity</button>
+      <button onclick="buttonClick()">RESET</button>
+    </div>
+    <br>
+    <br>
+
+    <div id="parent-container">
+      <div id="container"></div></div>
 
 
-<div id="parent-container"><div id="container"></div></div>
+  </body>
 
 
-</body>
+  <script src="script.js"></script>
 
 
-<script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  button {
+    width: 100px;
+    font-size: 16px;
+  }
 
-
-function rainbowColor() {
-
-let f = 0;
-let g = 0;
-
-while(f<count) {
-  document.getElementById(f).addEventListener("mouseenter", function( event ) {   
-  
-  
-  // highlight the mouseenter target
-  event.target.style.backgroundColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);})
-  f++;
-}
-
-}
-
-
-
-
-
-function tileOpacity() {
-
-let f = 0;
-let g = 0;
-
-while(f<count) {
-  document.getElementById(f).addEventListener("mouseenter", function( event ) {   
-  
-  g += 0.1;
-  
-  // highlight the mouseenter target
-  event.target.style.opacity = g;
-  event.target.style.backgroundColor = "black";})
-  f++;
-}
-
-}
-
-
-
-let count = 16*16;
-function buttonClick() {
-
-let e = 0;
-let cont;
-
-while(e<count) {
-
-  
-    // Removes an element from the document
-    cont = document.getElementById(e);
-    cont.remove();
-
- //   cont = document.getElementById(e);
-
- //   cont.style.cssText = 'color: blue; background: #5995DA';          
-    e++;
- }
-
-let value = prompt("How many squares per side would you like to make the new grid? (more squares means smaller squares)");
-count = value*value;
-let pixels = 480/value;
-let x=0;
-while(x<value*value) {
-const container = document.querySelector('#container');
-const div = document.createElement('div');
-div.style.width = pixels + "px";
-div.style.height = pixels + "px";
-div.setAttribute('id', x); 
-div.addEventListener("mouseenter", function( event ) {   
-  // highlight the mouseenter target
-  event.target.style.backgroundColor = "purple";})
-
-container.appendChild(div);
-x++;
-}; 
-
-
-}
-
-let i=0;
-while(i<16*16) {
-const container = document.querySelector('#container');
-const div = document.createElement('div');
-div.setAttribute('id', i); 
-div.addEventListener("mouseenter", function( event ) {   
-  // highlight the mouseenter target
-  event.target.style.backgroundColor = "purple";})
-
-container.appendChild(div);
-i++;
-}; 
-
-
-
-
-
-</script>
-
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-button {width: 100px;
-font-size: 16px;}
-
-#parent-container {
+  #parent-container {
     display: flex;
     justify-content: center;
-    
-    
-}
+  }
 
-#container {
-  color: #fff;
-  background-color: #5995DA;  /* Blue */
-  width: 480px;  
-  flex-wrap: wrap;
-  display: flex;
+  #container {
+    color: #fff;
+    background-color: #5995DA;  /* Blue */
+    width: 480px;  
+    flex-wrap: wrap;
+    display: flex;
+  }
 
-}
-
-div div div {
-width: 30px;
-height: 30px;}
+  div div div {
+    width: 30px;
+    height: 30px;
+  }
 
 
-.menu {
-  border: 1px solid #fff;  /* For debugging */
-  width: 900px;
-}
+  .menu {
+    border: 1px solid #fff;  /* For debugging */
+    width: 900px;
+  }
 
-</style>
+  </style>
 
 
 
